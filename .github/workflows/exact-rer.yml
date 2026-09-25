@@ -13,18 +13,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Run exact checks
+      - name: Run exact unit checks
         env:
           PYTHONPATH: src
         run: python tests/test_exact.py
-      - name: Generate deterministic artifact
+      - name: Generate minimal exact artifact
         env:
           PYTHONPATH: src
         run: |
           mkdir -p artifacts
           python experiments/minimal_exact.py > artifacts/minimal_exact.json
-          cat artifacts/minimal_exact.json
+      - name: Run exhaustive Boolean discovery
+        env:
+          PYTHONPATH: src
+        run: python experiments/exhaustive_boolean.py
+      - name: Independently verify closed forms
+        run: python tests/verify_exhaustive.py
       - uses: actions/upload-artifact@v4
         with:
           name: rer-exact-artifacts
-          path: artifacts/minimal_exact.json
+          path: |
+            artifacts/minimal_exact.json
+            artifacts/exhaustive_boolean.csv
+            artifacts/exhaustive_boolean_summary.json
