@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the work below."
+title: "Repair Evidence Theory"
+type: software
+authors:
+  - family-names: "Akhtar"
+    given-names: "Mohammad Amir Khusru"
+    orcid: "https://orcid.org/0000-0002-3432-4199"
+year: 2026
+repository-code: "https://github.com/Arithmetic-Power-Geometry/Repair-Evidence-Theory"
+license: "Apache-2.0"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Akhtar"
+      given-names: "Mohammad Amir Khusru"
+      orcid: "https://orcid.org/0000-0002-3432-4199"
+  title: "Repair Evidence Resolution: Separating Prediction, Structural Resolution, and Transfer in Automated Patch Correctness Assessment"
+  year: 2026
+  version: "V1"
+  doi: "10.5281/zenodo.22961349"
+  url: "https://doi.org/10.5281/zenodo.22961349"
