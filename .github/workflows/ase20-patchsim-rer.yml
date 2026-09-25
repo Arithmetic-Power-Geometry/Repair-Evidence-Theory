@@ -1,4 +1,5 @@
 name: ASE20 PATCH-SIM RER Gate
+# Gate 11 execution trigger: primary-artifact inventory
 on:
   workflow_dispatch:
   push:
