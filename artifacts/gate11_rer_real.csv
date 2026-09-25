@@ -1,0 +1,10 @@
+generator,representation,records,cells,mixed_cells,mixed_members,resolution_deficit,cell_mixed_rate,unavoidable_uniform_cell_error_count,unavoidable_uniform_cell_error_rate,claim_resolving,largest_cell
+Evosuite,full_pair,879,517,0,0,0.0,0.0,0,0.0,True,24
+Evosuite,vector1_only,879,451,3,12,0.013651877133105802,0.0066518847006651885,3,0.0034129692832764505,False,57
+Evosuite,vector2_only,879,331,0,0,0.0,0.0,0,0.0,True,150
+Randoop,full_pair,883,644,0,0,0.0,0.0,0,0.0,True,22
+Randoop,vector1_only,883,535,6,31,0.035107587768969425,0.011214953271028037,6,0.006795016987542469,False,59
+Randoop,vector2_only,883,480,0,0,0.0,0.0,0,0.0,True,64
+combined,full_pair,1762,1161,0,0,0.0,0.0,0,0.0,True,24
+combined,vector1_only,1762,986,9,43,0.024404086265607264,0.009127789046653144,9,0.00510783200908059,False,59
+combined,vector2_only,1762,811,0,0,0.0,0.0,0,0.0,True,150
