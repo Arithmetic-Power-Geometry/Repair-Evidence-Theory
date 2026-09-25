@@ -1,0 +1,30 @@
+name: exact-rer
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  exact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run exact checks
+        env:
+          PYTHONPATH: src
+        run: python tests/test_exact.py
+      - name: Generate deterministic artifact
+        env:
+          PYTHONPATH: src
+        run: |
+          mkdir -p artifacts
+          python experiments/minimal_exact.py > artifacts/minimal_exact.json
+          cat artifacts/minimal_exact.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rer-exact-artifacts
+          path: artifacts/minimal_exact.json
