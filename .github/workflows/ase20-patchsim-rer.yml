@@ -1,0 +1,33 @@
+name: ASE20 PATCH-SIM RER Gate
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'experiments/gate11_patchsim_inventory.py'
+      - '.github/workflows/ase20-patchsim-rer.yml'
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download primary ASE20 PATCH-SIM artifact
+        run: |
+          mkdir -p external artifacts
+          curl -L --fail --retry 3 -o external/PATCH-SIM_result.zip \
+            'https://zenodo.org/records/3730599/files/PATCH-SIM_result.zip?download=1'
+          echo 'e3b68e17dd4be6a2bafadd6c6b30b52e  external/PATCH-SIM_result.zip' | md5sum -c -
+      - name: Extract
+        run: |
+          mkdir -p external/PATCH-SIM_result
+          unzip -q external/PATCH-SIM_result.zip -d external/PATCH-SIM_result
+      - name: Inventory exact released outputs
+        run: python experiments/gate11_patchsim_inventory.py external/PATCH-SIM_result artifacts/gate11_patchsim_inventory.json
+      - name: Preserve inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate11-patchsim-inventory
+          path: artifacts/gate11_patchsim_inventory.json
