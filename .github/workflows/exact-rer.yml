@@ -35,6 +35,10 @@ jobs:
         run: python experiments/hamming_ball.py
       - name: Verify boundary/interior law
         run: python tests/verify_hamming_ball.py
+      - name: Run Gate 8 real-corpus metadata audit
+        env:
+          PYTHONPATH: src
+        run: python experiments/gate8_shibboleth.py
       - uses: actions/upload-artifact@v4
         with:
           name: rer-exact-artifacts
@@ -44,3 +48,5 @@ jobs:
             artifacts/exhaustive_boolean_summary.json
             artifacts/hamming_ball.csv
             artifacts/hamming_ball_summary.json
+            artifacts/gate8_shibboleth_resolution.json
+            artifacts/gate8_shibboleth_summary.csv
