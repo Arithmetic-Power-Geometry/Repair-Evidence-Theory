@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gate11-patchsim-inventory
-          path: artifacts/gate11_patchsim_inventory.json
+          path: |\n            artifacts/gate11_patchsim_inventory.json\n            artifacts/gate11_rer_real.csv\n            artifacts/gate11_rer_real.json
