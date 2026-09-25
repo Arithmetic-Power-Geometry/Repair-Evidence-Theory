@@ -1,0 +1,8 @@
+[project]
+name = "repair-evidence-theory"
+version = "0.1.0"
+description = "Exact finite experiments for Repair Evidence Resolution"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
